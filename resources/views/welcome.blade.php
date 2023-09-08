@@ -39,32 +39,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="slider_block" style="background-image: url(images/banner_slide02.png);">
-                        <div class="ban_text ">
-                            <div class="inner_text">
-                                <span class="sub_text">Welcome to the restaurant</span>
-                                <h1>Best taste of Steak & BBQ</h1>
-                                <p class="lead">A restaurant with Timeless & Traditional taste. </p>
-                                <a href="menu-list-2.html" class="btn btn_primary">view our full menu</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="slider_block" style="background-image: url(images/banner_slide03.png);">
-                        <div class="ban_text">
-                            <div class="inner_text">
-                                <span class="sub_text">Welcome to the restaurant</span>
-                                <h1>Timeless & Traditional taste</h1>
-                                <p class="lead">Authentic Tastes & Authentic Atmosphere, Change your life
-                                    with
-                                    our steaks. </p>
-                                <a href="menu-list-1.html" class="btn btn_primary">view our full menu</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>

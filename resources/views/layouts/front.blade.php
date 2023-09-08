@@ -94,13 +94,13 @@
                                     78</a>
                             </li>
                             <li class="d-lg-none">
-                                <a href="reservation-v1.html" class="btn btn_primary">FIND A TABLE</a>
+                                <a href="{{ route('reservations') }}" class="btn btn_primary">FIND A TABLE</a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="action_bar">
-                        <a href="reservation-v1.html" class="btn btn_primary">FIND A TABLE</a>
+                        <a href="{{ route('reservations') }}" class="btn btn_primary">FIND A TABLE</a>
                         <div class="bar">
                             <span></span>
                             <span></span>
@@ -120,7 +120,7 @@
             <span class="close_rightmenu"><i class="icofont-close-circled"></i></span>
             <div class="menu_inner_content">
                 <a href="#" class="side_logo">
-                    <img src="images/logo.png" alt="image">
+                    <img src="{{ asset('steakehouse_logo.png') }}" style="width: 80px;" alt="image">
                 </a>
                 <ul class="contact_listing">
                     <li>
@@ -151,7 +151,7 @@
                 </ul>
                 <a href="reservation-v2.html" class="btn btn_primary">book a table</a>
                 <figure class="tab_img">
-                    <img src="images/right_menu_table.png" alt="img">
+                    <img src="{{ asset('steakehouse_logo.png') }}" style="width: 80px;" alt="image">
                 </figure>
             </div>
         </div>
@@ -206,22 +206,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="foote_widget menu_links">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul class="links d-flex justify-content-center">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="menu-list-1.html">Menu 1</a></li>
-                                <li><a href="menu-list-2.html">Menu 2</a></li>
-                                <li><a href="menu-list-3.html">Menu 3</a></li>
-                                <li><a href="about-us.html">About us</a></li>
-                                <li><a href="our-chef.html">Our chefs</a></li>
-                                <li><a href="blog-list.html">Blog</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="row">
                     <div class="col-md-12 copy_right text-center">
                         <p>© 2023 Restaurant. All Rights Reserved | Steakhouse</p>
