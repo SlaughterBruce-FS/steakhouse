@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
-class SliderControler extends Controller
+class FrontController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $sliders = Slider::all();
+
+        return view('welcome', [
+            'sliders' => $sliders
+        ]);
     }
 
     /**

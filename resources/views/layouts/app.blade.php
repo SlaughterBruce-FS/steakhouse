@@ -47,10 +47,48 @@
     </div>
     <!--  END LOADER -->
 
-    <main>
+
+    @include('layouts.nav')
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container" id="container">
+
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
+
+        @include('layouts.sidebar')
+
+
         {{ $slot }}
-    </main>
+
+        <!--  BEGIN FOOTER  -->
+        <div class="footer-wrapper">
+            <div class="footer-section f-section-1">
+                <p class="">Copyright © <span class="dynamic-year">2023</span> Jamies SteakHouse, All rights
+                    reserved.</p>
+            </div>
+
+        </div>
+        <!--  END FOOTER  -->
     </div>
+    <!--  END CONTENT AREA  -->
+
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="../src/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../src/plugins/src/mousetrap/mousetrap.min.js"></script>
+    <script src="../src/plugins/src/waves/waves.min.js"></script>
+    <script src="../layouts/modern-dark-menu/app.js"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script src="../src/plugins/src/apex/apexcharts.min.js"></script>
+    <script src="../src/assets/js/dashboard/dash_1.js"></script>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+
 </body>
 
 </html>
