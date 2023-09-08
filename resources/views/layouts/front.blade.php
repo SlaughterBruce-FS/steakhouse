@@ -69,54 +69,25 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
 
-                            <li class="nav-item has_dropdown">
-                                <a class="nav-link" href="#">Home </a>
-                                <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
-                                <div class="sub_menu">
-                                    <ul>
-                                        <li><a href="index.html">Home Defoult</a></li>
-                                        <li><a href="home-slider-hero.html">Home Slider Hero</a></li>
-                                        <li><a href="home-dish-list.html">Home Dish List</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="nav-item has_dropdown">
-                                <a class="nav-link" href="#">MENU </a>
-                                <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
-                                <div class="sub_menu">
-                                    <ul>
-                                        <li><a href="menu-list-1.html">Menu List 1</a></li>
-                                        <li><a href="menu-list-2.html">Menu List 2</a></li>
-                                        <li><a href="menu-list-3.html">Menu List 3</a></li>
-                                    </ul>
-                                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="about-us.html">ABOUT US</a>
+                                <a class="nav-link" href="{{ route('menu') }}">MENU </a>
+
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('about') }}">ABOUT US</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="our-chef.html">OUR CHEFS</a>
+                                <a class="nav-link" href="{{ route('reservations') }}">RESERVATIONS</a>
                             </li>
-                            <!-- secondery menu start -->
-                            <li class="nav-item has_dropdown">
-                                <a class="nav-link" href="#">Pages</a>
-                                <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
-                                <div class="sub_menu">
-                                    <ul>
-                                        <li><a href="blog-list.html">Blog List </a></li>
-                                        <li><a href="blog-detail.html">Blog Details</a></li>
-                                        <li><a href="reservation-v1.html">reservation 1</a></li>
-                                        <li><a href="reservation-v2.html">reservation 2</a></li>
-                                        <li><a href="reviews.html">reviews</a></li>
-                                        <li><a href="gallery.html">gallery</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+
                             <!-- secondery menu end -->
                             <li class="nav-item">
-                                <a class="nav-link" href="contact-us.html">Contact</a>
+                                <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                             </li>
                             <li class="nav-item contact_number">
                                 <a class="nav-link" href="tel:+18001234578"><span>book a tale :</span> +1 800 123 45

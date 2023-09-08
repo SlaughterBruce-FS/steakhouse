@@ -14,9 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// front/public routes
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('about');
+
+Route::get('/menu', function () {
+    return view('pages.menu');
+})->name('menu');
+
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+})->name('contact');
+
+Route::get('/reservations', function () {
+    return view('pages.reservations');
+})->name('reservations');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,4 +48,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
