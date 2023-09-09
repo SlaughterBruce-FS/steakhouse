@@ -49,6 +49,60 @@ Route::get('/dashboard', function () {
 
 Route::group(
     [
+        'prefix' => 'category',
+        'as' => 'category.'
+    ],
+    function () {
+        Route::get('/', [\App\Http\Controllers\CategoryController::class, 'index'])
+            ->middleware(['auth'])->name('all');
+
+        Route::get('/create', [\App\Http\Controllers\CategoryController::class, 'create'])
+            ->middleware(['auth'])->name('create');
+
+        Route::get('/{id}/edit', [\App\Http\Controllers\CategoryController::class, 'edit'])
+            ->middleware(['auth'])->name('edit');
+
+        Route::post('/', [\App\Http\Controllers\CategoryController::class, 'store'])
+            ->middleware(['auth'])->name('store');
+
+        Route::put('/{id}', [\App\Http\Controllers\CategoryController::class, 'update'])
+            ->middleware(['auth'])->name('update');
+
+        Route::get('/{id}/delete', [\App\Http\Controllers\CategoryController::class, 'destroy'])
+            ->middleware(['auth'])->name('destroy');
+    }
+);
+
+
+Route::group(
+    [
+        'prefix' => 'gallery',
+        'as' => 'gallery.'
+    ],
+    function () {
+        Route::get('/', [\App\Http\Controllers\CategoryController::class, 'index'])
+            ->middleware(['auth'])->name('all');
+
+        Route::get('/create', [\App\Http\Controllers\CategoryController::class, 'create'])
+            ->middleware(['auth'])->name('create');
+
+        Route::get('/{id}/edit', [\App\Http\Controllers\CategoryController::class, 'edit'])
+            ->middleware(['auth'])->name('edit');
+
+        Route::post('/', [\App\Http\Controllers\CategoryController::class, 'store'])
+            ->middleware(['auth'])->name('store');
+
+        Route::put('/{id}', [\App\Http\Controllers\CategoryController::class, 'update'])
+            ->middleware(['auth'])->name('update');
+
+        Route::get('/{id}/delete', [\App\Http\Controllers\CategoryController::class, 'destroy'])
+            ->middleware(['auth'])->name('destroy');
+    }
+);
+
+
+Route::group(
+    [
         'prefix' => 'slider',
         'as' => 'slider.'
     ],

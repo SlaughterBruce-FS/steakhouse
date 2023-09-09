@@ -1,7 +1,27 @@
-<x-app-layout>
+@extends('layouts.app')
+
+@section('title', 'Welcome Page')
+
+
+@section('pagestyles')
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="/../src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/../layouts/modern-dark-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="/../layouts/modern-dark-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="/../src/plugins/src/table/datatable/datatables.css">
+
+    <link rel="stylesheet" type="text/css" href="/../src/plugins/css/light/table/datatable/dt-global_style.css">
+    <link rel="stylesheet" type="text/css" href="/../src/plugins/css/dark/table/datatable/dt-global_style.css">
+    <!-- END PAGE LEVEL STYLES -->
+@endsection
 
 
 
+@section('content')
     <!--  BEGIN CONTENT AREA  -->
     <div id="content" class="main-content">
         <div class="layout-px-spacing">
@@ -19,8 +39,8 @@
                                         <a class="dropdown-toggle" href="#" role="button" id="statistics"
                                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
                                                 class="feather feather-more-horizontal">
                                                 <circle cx="12" cy="12" r="1">
                                                 </circle>
@@ -119,8 +139,8 @@
                                 <div class="w-progress-stats">
                                     <div class="progress">
                                         <div class="progress-bar bg-gradient-secondary" role="progressbar"
-                                            style="width: 57%" aria-valuenow="57" aria-valuemin="0"
-                                            aria-valuemax="100"></div>
+                                            style="width: 57%" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100">
+                                        </div>
                                     </div>
 
                                     <div class="">
@@ -170,28 +190,28 @@
                     </div>
 
                     <!-- <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
-                                <div class="widget widget-card-three">
-                                    <div class="widget-content">
-                                        <div class="account-box">
-                                            <div class="info">
-                                                <div class="inv-title">
-                                                    <h5 class="">Total Balance</h5>
-                                                </div>
-                                                <div class="inv-balance-info">
-                                                    <p class="inv-balance">$ 41,741.42</p>
-                                                    <span class="inv-stats balance-credited">+ 2453</span>
-                                                </div>
-                                            </div>
-                                            <div class="acc-action">
-                                                <div class="">
-                                                    <a href="javascript:void(0);" class="btn-wallet"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></a>
-                                                </div>
-                                                <a href="javascript:void(0);" class="btn-add-balance">Add Balance</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
+                                                                <div class="widget widget-card-three">
+                                                                    <div class="widget-content">
+                                                                        <div class="account-box">
+                                                                            <div class="info">
+                                                                                <div class="inv-title">
+                                                                                    <h5 class="">Total Balance</h5>
+                                                                                </div>
+                                                                                <div class="inv-balance-info">
+                                                                                    <p class="inv-balance">$ 41,741.42</p>
+                                                                                    <span class="inv-stats balance-credited">+ 2453</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="acc-action">
+                                                                                <div class="">
+                                                                                    <a href="javascript:void(0);" class="btn-wallet"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></a>
+                                                                                </div>
+                                                                                <a href="javascript:void(0);" class="btn-add-balance">Add Balance</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div> -->
 
                     <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
                         <div class="widget widget-chart-three">
@@ -275,10 +295,9 @@
                                         <div class="item-timeline timeline-new">
                                             <div class="t-dot">
                                                 <div class="t-secondary"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-plus">
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="feather feather-plus">
                                                         <line x1="12" y1="5" x2="12"
                                                             y2="19"></line>
                                                         <line x1="5" y1="12" x2="19"
@@ -297,10 +316,9 @@
                                         <div class="item-timeline timeline-new">
                                             <div class="t-dot">
                                                 <div class="t-success"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-mail">
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="feather feather-mail">
                                                         <path
                                                             d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
                                                         </path>
@@ -320,10 +338,9 @@
                                         <div class="item-timeline timeline-new">
                                             <div class="t-dot">
                                                 <div class="t-primary"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-check">
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="feather feather-check">
                                                         <polyline points="20 6 9 17 4 12"></polyline>
                                                     </svg></div>
                                             </div>
@@ -338,10 +355,9 @@
                                         <div class="item-timeline timeline-new">
                                             <div class="t-dot">
                                                 <div class="t-danger"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-check">
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="feather feather-check">
                                                         <polyline points="20 6 9 17 4 12"></polyline>
                                                     </svg></div>
                                             </div>
@@ -358,10 +374,9 @@
                                         <div class="item-timeline timeline-new">
                                             <div class="t-dot">
                                                 <div class="t-warning"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-file">
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="feather feather-file">
                                                         <path
                                                             d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z">
                                                         </path>
@@ -381,10 +396,9 @@
                                         <div class="item-timeline timeline-new">
                                             <div class="t-dot">
                                                 <div class="t-dark"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        width="24" height="24" viewBox="0 0 24 24"
-                                                        fill="none" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-server">
+                                                        width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round" class="feather feather-server">
                                                         <rect x="2" y="2" width="20"
                                                             height="8" rx="2" ry="2">
                                                         </rect>
@@ -461,8 +475,7 @@
                                                 class="feather feather-compass">
                                                 <circle cx="12" cy="12" r="10">
                                                 </circle>
-                                                <polygon
-                                                    points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76">
+                                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76">
                                                 </polygon>
                                             </svg>
                                         </div>
@@ -566,11 +579,9 @@
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                                     class="feather feather-link">
-                                                    <path
-                                                        d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
+                                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71">
                                                     </path>
-                                                    <path
-                                                        d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
+                                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71">
                                                     </path>
                                                 </svg>
                                             </div>
@@ -677,10 +688,10 @@
                                 <div class="progress-data">
 
                                     <div class="progress-info">
-                                        <div class="task-count"><svg xmlns="http://www.w3.org/2000/svg"
-                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" class="feather feather-check-square">
+                                        <div class="task-count"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="feather feather-check-square">
                                                 <polyline points="9 11 12 14 22 4"></polyline>
                                                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11">
                                                 </path>
@@ -760,8 +771,8 @@
                                 <div class="w-action">
                                     <div class="card-like">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-thumbs-up">
                                             <path
                                                 d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
@@ -771,11 +782,10 @@
                                     </div>
 
                                     <div class="read-more">
-                                        <a href="javascript:void(0);">Read More <svg
-                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-chevrons-right">
+                                        <a href="javascript:void(0);">Read More <svg xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round" class="feather feather-chevrons-right">
                                                 <polyline points="13 17 18 12 13 7"></polyline>
                                                 <polyline points="6 17 11 12 6 7"></polyline>
                                             </svg></a>
@@ -818,5 +828,21 @@
             </div>
 
         </div>
+    </div>
+@endsection
 
-</x-app-layout>
+@section('pagescripts')
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="{{ asset('src/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/src/mousetrap/mousetrap.min.js') }}"></script>
+    <script src="{{ asset('src/plugins/src/waves/waves.min.js') }}"></script>
+    <script src="{{ asset('layouts/modern-dark-menu/app.js') }}"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <script src="{{ asset('src/plugins/src/apex/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('src/assets/js/dashboard/dash_1.js') }}"></script>
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+
+@endsection

@@ -728,70 +728,49 @@
         <div class="container">
             <!-- Section Title -->
             <div class="section_title text-center" data-aos="fade-up" data-aos-duration="1500">
-                <div class="icon"><img src="images/title_icon.png" alt="img"></div>
+                <div class="icon"><img src="{{ asset('front_assets/images/title_icon.png') }}" alt="img"></div>
                 <span class="sub_text">Who we are</span>
-                <h2>A restaurant with Timeless & Traditional taste <br> <span class="heading_img"><img
-                            src="images/who_icon.png" alt="img"></span>
-                    We Only Serve Real Steaks, <br>
-                    Authentic Tastes & Authentic Atmosphere, <br>
-                    The steak you will always remember. <span class="heading_img"><img src="images/who_icon2.png"
-                            alt="img"></span> Let us <br> change your life
-                    with our steaks.
+                <h2>AA Haven of Classic and Timeless Flavors <br> <span class="heading_img"><img
+                            src="{{ asset('front_assets/images/who_icon.png') }}" alt="img"></span>
+                    Dedicated to Serving Authentic Steaks <br>
+                    Experience genuine flavors in a truly traditional setting. <br>
+                    The steak that becomes an unforgettable memory. <span class="heading_img"><img
+                            src="{{ asset('front_assets/images/who_icon2.png') }}" alt="img"></span>Allow us <br> to
+                    transform your dining
+                    experience with our premium cuts.
                 </h2>
             </div>
         </div>
         <!-- Image Gallery Start-->
         <div class="gallery_slider">
-            <!-- Right To left -->
-            <div class="owl-carousel owl-theme" id="gallery_flow_right" data-aos="fade-in" data-aos-duration="1500">
-                <div class="item">
-                    <div class="img">
-                        <img src="images/gallery_01.png" alt="img">
+            @foreach ($gallery as $photo)
+                @if ($photo->path == 'top')
+                    <!-- Right To left -->
+                    <div class="owl-carousel owl-theme" id="gallery_flow_right" data-aos="fade-in"
+                        data-aos-duration="1500">
+                        <div class="item">
+                            <div class="img">
+                                <img src="{{ asset('storage/images/' . $photo->name) }}" alt="img">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="images/gallery_02.png" alt="img">
+                @else
+                    <!-- Left To Right -->
+                    <div class="owl-carousel owl-theme" id="gallery_flow_left" data-aos="fade-in"
+                        data-aos-duration="1500">
+                        <div class="item">
+                            <div class="img">
+                                <img src="{{ asset('storage/images/' . $photo->name) }}" alt="img">
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="images/gallery_03.png" alt="img">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="images/gallery_04.png" alt="img">
-                    </div>
-                </div>
-            </div>
-            <!-- Left To Right -->
-            <div class="owl-carousel owl-theme" id="gallery_flow_left" data-aos="fade-in" data-aos-duration="1500">
-                <div class="item">
-                    <div class="img">
-                        <img src="images/gallery_05.png" alt="img">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="images/gallery_06.png" alt="img">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="images/gallery_07.png" alt="img">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img">
-                        <img src="images/gallery_08.png" alt="img">
-                    </div>
-                </div>
-            </div>
+                @endif
+            @endforeach
         </div>
         <!-- Image Gallery End-->
         <div class="text-center" data-aos="fade-in" data-aos-duration="1500">
-            <a href="about-us.html" class="btn btn_primary">read our story</a>
+            <a href="{{ route('about') }}" class="btn btn_primary">read our story</a>
         </div>
     </div>
     <!-- Who We Are Section End -->

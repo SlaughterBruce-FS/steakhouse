@@ -30,6 +30,7 @@
     <!-- Responsive-Style-link -->
     <link rel="stylesheet" href="/front_assets/css/responsive.css">
 
+
     <script src="front_assets/js/jquery.js"></script>
 
     <!-- Scripts -->

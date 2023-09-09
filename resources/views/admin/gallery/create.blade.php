@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Sliders')
+@section('title', 'Upload Photos')
 
 
 
@@ -48,7 +48,7 @@
                     <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="#">Slider</a></li>
+                            <li class="breadcrumb-item"><a href="#">Gallery</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Create</li>
                         </ol>
                     </nav>
@@ -56,67 +56,47 @@
                 <!-- /BREADCRUMB -->
 
                 <div class="row mb-4 layout-spacing layout-top-spacing">
-                    <form class="row" method="POST" action="{{ route('slider.store') }}" enctype="multipart/form-data">
+                    <form class="row" method="POST" action="{{ route('gallery.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="col-xxl-9
                         col-xl-12 col-lg-12 col-md-12 col-sm-12">
-
                             <div class="widget-content widget-content-area blog-create-section">
 
+                                <div class="col-xxl-12 col-md-12 mb-4">
+
+                                    <label for="product-images">Featured Image</label>
+                                    <div class="multiple-file-upload">
+                                        <input type="file" class="filepond file-upload-multiple" name="image"
+                                            id="product-images" multiple data-allow-reorder="true" data-max-file-size="3MB"
+                                            data-max-files="5" multiple>
+                                    </div>
+
+                                </div>
 
                                 <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="sub_title" placeholder="Sub Title"
-                                            name="sub_title">
+                                    <div class="form-group row invoice-created-by">
+                                        <label for="payment-method-country"
+                                            class="col-sm-12 col-form-label col-form-label-sm">Top Or Bottom Scroll</label>
+                                        <div class="col-sm-12">
+                                            <select name="path" class="form-select country_code  form-control-sm"
+                                                id="path">
+                                                <option value="" selected>Choose</option>
+                                                <option value="top">top</option>
+                                                <option value="bottom">bottom</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="main-title" placeholder="Main title"
-                                            name="title">
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="description" placeholder="Info"
-                                            name="description">
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="button-text"
-                                            placeholder="button text" name="button_text">
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="link" placeholder="Link"
-                                            name="link">
-                                    </div>
-                                </div>
-
 
 
                             </div>
-
-
-
                         </div>
 
                         <div class="col-xxl-3 col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-xxl-0 mt-4">
                             <div class="widget-content widget-content-area blog-create-section">
                                 <div class="row">
 
-                                    <div class="col-xxl-12 col-md-12 mb-4">
 
-                                        <label for="product-images">Featured Image</label>
-                                        <div class="multiple-file-upload">
-                                            <input type="file" class="filepond file-upload-multiple" name="image"
-                                                id="product-images" multiple data-allow-reorder="true"
-                                                data-max-file-size="3MB" data-max-files="5">
-                                        </div>
-
-                                    </div>
 
                                     <div class="col-xxl-12 col-sm-4 col-12 mx-auto">
                                         <button class="btn btn-success w-100">Create Post</button>

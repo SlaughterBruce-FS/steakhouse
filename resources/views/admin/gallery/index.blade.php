@@ -55,44 +55,28 @@
                                 <thead>
                                     <tr>
                                         <th>Image</th>
-                                        <th>Sub Title</th>
-                                        <th>Title</th>
-                                        <th>Descriptiion</th>
-                                        <th>Link</th>
+                                        <th>Row</th>
                                         <th>Updated at</th>
-                                        <th>action</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sliders as $slider)
+                                    @foreach ($gallery as $photo)
                                         <tr>
                                             <td>
                                                 <div class="d-flex">
                                                     <div>
                                                         <img alt="avatar" class="img-fluid " style="width: 100px"
-                                                            src="{{ asset('storage/images/' . $slider->img_name) }}">
+                                                            src="{{ asset('storage/images/' . $photo->name) }}">
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>{{ $slider->sub_title }}</td>
-                                            <td>{{ $slider->title }}</td>
-                                            <td>{{ $slider->description }}</td>
-
-                                            <td> {{ $slider->link }}</td>
-                                            <td>{{ $slider->created_at }}</td>
+                                            <td>{{ $photo->path }}</td>
+                                            <td>{{ $photo->created_at }}</td>
                                             <td class="text-center ">
-                                                <a class="badge badge-light-primary text-start me-2 action-edit"
-                                                    href="{{ route('slider.edit', ['id' => $slider->id]) }}"><svg
-                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-edit-3">
-                                                        <path d="M12 20h9"></path>
-                                                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z">
-                                                        </path>
-                                                    </svg></a>
+
                                                 <a class="badge badge-light-danger text-start action-delete"
-                                                    href="{{ route('slider.destroy', ['id' => $slider->id]) }}"
+                                                    href="{{ route('gallery.destroy', ['id' => $photo->id]) }}"
                                                     onclick="return confirm('Are you sure you want to delete?')">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"

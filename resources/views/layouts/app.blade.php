@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
+
+    {{--  @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <link rel="icon" type="image/x-icon" href="../src/assets/img/favicon.ico" />
+
+    @yield('pagestyles')
     <link href="{{ asset('layouts/modern-dark-menu/css/light/loader.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('layouts/modern-dark-menu/css/dark/loader.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ asset('layouts/modern-dark-menu/loader.js') }}"></script>
@@ -22,17 +26,21 @@
     <link href="{{ asset('src/bootstrap/css/bootstrap.min.css" rel="stylesheet') }}" type="text/css" />
     <link href="{{ asset('layouts/modern-dark-menu/css/light/plugins.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('layouts/modern-dark-menu/css/dark/plugins.css') }}" rel="stylesheet" type="text/css" />
+
+
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <link href="{{ asset('src/plugins/src/apex/apexcharts.cs') }}s" rel="stylesheet" type="text/css">
+    <link href="{{ asset('src/plugins/src/apex/apexcharts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('src/assets/css/light/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('src/assets/css/dark/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
+    {{--  @yield('pagestyles')  --}}
+
 
     <!-- Scripts -->
-    {{--  @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
+
 </head>
 
 
@@ -59,7 +67,7 @@
         @include('layouts.sidebar')
 
 
-        {{ $slot }}
+        @yield('content')
 
         <!--  BEGIN FOOTER  -->
         <div class="footer-wrapper">
@@ -76,7 +84,9 @@
     </div>
     <!-- END MAIN CONTAINER -->
 
-    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    @yield('pagescripts')
+
+    {{--  <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="{{ asset('src/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('src/plugins/src/mousetrap/mousetrap.min.js') }}"></script>
@@ -87,7 +97,7 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script src="{{ asset('src/plugins/src/apex/apexcharts.min.js') }}"></script>
     <script src="{{ asset('src/assets/js/dashboard/dash_1.js') }}"></script>
-    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->  --}}
 
 </body>
 

@@ -11,7 +11,7 @@
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
         </a>
-
+        {{--
         <div class="search-animated toggle-search">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -31,31 +31,10 @@
                 </div>
             </form>
             <span class="badge badge-secondary">Ctrl + /</span>
-        </div>
+        </div>  --}}
 
         <ul class="navbar-item flex-row ms-lg-auto ms-0">
 
-            <li class="nav-item dropdown language-dropdown">
-                <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="language-dropdown"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="../src/assets/img/1x1/us.svg" class="flag-width" alt="flag">
-                </a>
-                <div class="dropdown-menu position-absolute" aria-labelledby="language-dropdown">
-                    <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="../src/assets/img/1x1/us.svg"
-                            class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;English</span></a>
-                    <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="../src/assets/img/1x1/tr.svg"
-                            class="flag-width" alt="flag"> <span class="align-self-center">&nbsp;Turkish</span></a>
-                    <a class="dropdown-item d-flex" href="javascript:void(0);"><img src="../src/assets/img/1x1/br.svg"
-                            class="flag-width" alt="flag"> <span
-                            class="align-self-center">&nbsp;Portuguese</span></a>
-                    <a class="dropdown-item d-flex" href="javascript:void(0);"><img
-                            src="../src/assets/img/1x1/in.svg" class="flag-width" alt="flag"> <span
-                            class="align-self-center">&nbsp;Hindi</span></a>
-                    <a class="dropdown-item d-flex" href="javascript:void(0);"><img
-                            src="../src/assets/img/1x1/de.svg" class="flag-width" alt="flag"> <span
-                            class="align-self-center">&nbsp;German</span></a>
-                </div>
-            </li>
 
             <li class="nav-item theme-toggle-item">
                 <a href="javascript:void(0);" class="nav-link theme-toggle">
@@ -80,7 +59,7 @@
                 </a>
             </li>
 
-            <li class="nav-item dropdown notification-dropdown">
+            {{--  <li class="nav-item dropdown notification-dropdown">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="notificationDropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -280,7 +259,7 @@
                     </div>
                 </div>
 
-            </li>
+            </li>  --}}
 
             <li class="nav-item dropdown user-profile-dropdown  order-lg-0 order-1">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown"
