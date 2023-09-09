@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('discounts', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->unique();
+            $table->string('title')->nullable();
+            $table->integer('percent_off')->nullable();
+            $table->integer('amount_off')->nullable();
+            $table->string('price')->nullable();
+            $table->string('description')->nullable();
+            $table->string('image');
+            $table->string('status')->default('active');
+            $table->unsignedBigInteger('food_id')->nullable();
+            $table->foreign('food_id')->references('id')->on('food')->onDelete('cascade');
             $table->timestamps();
         });
     }
