@@ -25,20 +25,23 @@
         <!-- Main Banner Slider Start -->
         <div class="banner_slider" data-aos="fade-up" data-aos-duration="3000" data-aos-offset="0">
             <div class="owl-carousel owl-theme" id="banner_slider">
-                <div class="item">
-                    <div class="slider_block" style="background-image: url(images/banner_slide01.png);">
-                        <div class="ban_text ">
-                            <div class="inner_text">
-                                <span class="sub_text">Welcome to the restaurant</span>
-                                <h1>Steak & BBQ restaurant</h1>
-                                <p class="lead">We Only Serve Real Steaks, The steak you will always
-                                    remember.
-                                </p>
-                                <a href="menu-list-1.html" class="btn btn_primary">view our full menu</a>
+                @foreach ($sliders as $slider)
+                    <div class="item">
+                        <div class="slider_block"
+                            style="background-image: url({{ asset('storage/images/' . $slider->img_name) }});">
+                            <div class="ban_text ">
+                                <div class="inner_text">
+                                    <span class="sub_text">{{ $slider->sub_title }}</span>
+                                    <h1>{{ $slider->title }}</h1>
+                                    <p class="lead">{{ $slider->description }}
+                                    </p>
+                                    <a href="{{ $slider->link }}" class="btn btn_primary">{{ $slider->button_text }}</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
             </div>
 
         </div>
