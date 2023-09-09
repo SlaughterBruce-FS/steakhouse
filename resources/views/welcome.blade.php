@@ -178,467 +178,51 @@
                 <h2>The best dishes</h2>
             </div>
             <!-- Section Title End -->
-            <!-- Navigation tab Start -->
+            <!-- Navigation tabs Start -->
             <ul class="nav nav-tabs" id="myTab" role="tablist" data-aos="fade-up" data-aos-duration="1500">
-                <li class="nav-item">
-                    <a class="nav-link" id="starters-tab" data-toggle="tab" href="#starters" role="tab"
-                        aria-controls="starters" aria-selected="true">starters</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" id="steaks-tab" data-toggle="tab" href="#steaks" role="tab"
-                        aria-controls="steaks" aria-selected="false">steaks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="special-tab" data-toggle="tab" href="#special" role="tab"
-                        aria-controls="special" aria-selected="false">special</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="deserts-tab" data-toggle="tab" href="#deserts" role="tab"
-                        aria-controls="deserts" aria-selected="false">deserts</a>
-                </li>
+                @foreach ($categories as $category)
+                    <li class="nav-item">
+                        <a class="nav-link {{ $category->name == 'steaks' ? 'active' : '' }}"
+                            id="{{ $category->name }}-tab" data-toggle="tab" href="#{{ $category->name }}"
+                            role="tab" aria-controls="{{ $category->name }}"
+                            aria-selected="{{ $category->name == 'steaks' ? 'true' : 'false' }}">{{ $category->name }}</a>
+                    </li>
+                @endforeach
             </ul>
             <!-- Navigation tab End -->
 
             <!-- Tab Content Start -->
             <div class="tab-content" id="myTabContent" data-aos="fade-up" data-aos-duration="1500">
-                <!-- Tab Block -->
-                <div class="tab-pane fade" id="starters" role="tabpanel" aria-labelledby="starters-tab">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_07.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Tommy’s Margarita</h3>
-                                            <p>Tomatoes Beef, Eggs, poached Beef, Eggs, poached, with bacon,
-                                                Bacon,
-                                                chorizo, roasted roma </p>
-                                            <span class="price">$18.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <span class="new">NEW</span>
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_08.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3> Meat steak raw marbled</h3>
-                                            <p>Shad angler arapaima pencilsmelt. Eggs, poached, with Galjoen
-                                                fish
-                                                Australian lungfish sea, bacon. </p>
-                                            <span class="price">$22.00</span>
+                @foreach ($food as $item)
+                    <div class="tab-pane fade {{ $item->categories->name == 'steaks' ? 'show active' : '' }}"
+                        id="{{ $item->categories->name }}" role="tabpanel"
+                        aria-labelledby="{{ $item->categories->name }}-tab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="dish_box">
+                                        <div class="dish_info">
+                                            <div class="dish_img">
+                                                <img src="{{ asset('storage/images/' . $item->img_name) }}"
+                                                    alt="img">
+                                            </div>
+                                            <div class="dish_text">
+                                                <h3>{{ $item->name }}</h3>
+                                                <p>{{ $item->description }} </p>
+                                                <span class="price">${{ $item->price }}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <span class="new">NEW</span>
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_09.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Beef steak grill pan</h3>
-                                            <p>Roasted roma tomatoes mushrooms & spinach Beef, Eggs, poached,
-                                                fried,
-                                                with bacon, chorizo.
-                                            </p>
-                                            <span class="price">$16.00</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="text-center">
+                                <a href="{{ route('menu') }}" class="btn btn_primary">view full menu</a>
                             </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_04.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>raw marbled meat steak</h3>
-                                            <p>Shad angler arapaima pencilsmelt. Eggs, poached, fried, with
-                                                bacon.
-                                                chorizo, roasted roma tomatoes.</p>
-                                            <span class="price">$25.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_05.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Prickly Pear Tonic</h3>
-                                            <p>Galjoen fish Australian lungfish sea, Shad angler arapaima
-                                                pencilsmelt. Eggs, poached, with
-                                                bacon.</p>
-                                            <span class="price">$16.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_06.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Bacon chorizo roasted</h3>
-                                            <p>Bacon, chorizo, roasted roma
-                                                tomatoes Beef, Eggs, poached Beef, Eggs, poached, with bacon,
-                                            </p>
-                                            <span class="price">$22.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <a href="menu-list-1.html" class="btn btn_primary">view full menu</a>
                         </div>
                     </div>
-                </div>
-
-                <!-- Tab Block -->
-                <div class="tab-pane fade show active" id="steaks" role="tabpanel" aria-labelledby="steaks-tab">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <span class="new">NEW</span>
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_01.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Beef steak grill pan</h3>
-                                            <p>Beef, Eggs, poached, fried, with bacon, chorizo, roasted roma
-                                                tomatoes mushrooms & spinach.
-                                            </p>
-                                            <span class="price">$16.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <span class="new">NEW</span>
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_02.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>raw marbled meat steak</h3>
-                                            <p>Galjoen fish Australian lungfish sea, Shad angler arapaima
-                                                pencilsmelt. Eggs, poached, with
-                                                bacon. </p>
-                                            <span class="price">$22.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_03.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Beef steak grill pan</h3>
-                                            <p>Bacon, chorizo, roasted roma
-                                                tomatoes Beef, Eggs, poached Beef, Eggs, poached, with bacon,
-                                            </p>
-                                            <span class="price">$18.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_04.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>raw marbled meat steak</h3>
-                                            <p>Shad angler arapaima pencilsmelt. Eggs, poached, fried, with
-                                                bacon.
-                                                chorizo, roasted roma tomatoes.</p>
-                                            <span class="price">$25.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_05.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Beef steak grill pan</h3>
-                                            <p>Galjoen fish Australian lungfish sea, Shad angler arapaima
-                                                pencilsmelt. Eggs, poached, with
-                                                bacon.</p>
-                                            <span class="price">$16.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_06.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>raw marbled meat steak</h3>
-                                            <p>Bacon, chorizo, roasted roma
-                                                tomatoes Beef, Eggs, poached Beef, Eggs, poached, with bacon,
-                                            </p>
-                                            <span class="price">$22.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <a href="menu-list-2.html" class="btn btn_primary">view full menu</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab Block -->
-                <div class="tab-pane fade" id="special" role="tabpanel" aria-labelledby="special-tab">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_07.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Tommy’s Margarita</h3>
-                                            <p>Tomatoes Beef, Eggs, poached Beef, Eggs, poached, with bacon,
-                                                Bacon,
-                                                chorizo, roasted roma </p>
-                                            <span class="price">$18.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <span class="new">NEW</span>
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_08.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3> Meat steak raw marbled</h3>
-                                            <p>Shad angler arapaima pencilsmelt. Eggs, poached, with Galjoen
-                                                fish
-                                                Australian lungfish sea, bacon. </p>
-                                            <span class="price">$22.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <span class="new">NEW</span>
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_09.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Beef steak grill pan</h3>
-                                            <p>Roasted roma tomatoes mushrooms & spinach Beef, Eggs, poached,
-                                                fried,
-                                                with bacon, chorizo.
-                                            </p>
-                                            <span class="price">$16.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_04.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>raw marbled meat steak</h3>
-                                            <p>Shad angler arapaima pencilsmelt. Eggs, poached, fried, with
-                                                bacon.
-                                                chorizo, roasted roma tomatoes.</p>
-                                            <span class="price">$25.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_05.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Prickly Pear Tonic</h3>
-                                            <p>Galjoen fish Australian lungfish sea, Shad angler arapaima
-                                                pencilsmelt. Eggs, poached, with
-                                                bacon.</p>
-                                            <span class="price">$16.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_06.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Bacon chorizo roasted</h3>
-                                            <p>Bacon, chorizo, roasted roma
-                                                tomatoes Beef, Eggs, poached Beef, Eggs, poached, with bacon,
-                                            </p>
-                                            <span class="price">$22.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <a href="menu-list-3.html" class="btn btn_primary">view full menu</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab Block -->
-                <div class="tab-pane fade" id="deserts" role="tabpanel" aria-labelledby="deserts-tab">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <span class="new">NEW</span>
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/desert1.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Beef steak grill pan</h3>
-                                            <p>Beef, Eggs, poached, fried, with bacon, chorizo, roasted roma
-                                                tomatoes mushrooms & spinach.
-                                            </p>
-                                            <span class="price">$16.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <span class="new">NEW</span>
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/desert2.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>raw marbled meat steak</h3>
-                                            <p>Galjoen fish Australian lungfish sea, Shad angler arapaima
-                                                pencilsmelt. Eggs, poached, with
-                                                bacon. </p>
-                                            <span class="price">$22.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/desert3.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Beef steak grill pan</h3>
-                                            <p>Bacon, chorizo, roasted roma
-                                                tomatoes Beef, Eggs, poached Beef, Eggs, poached, with bacon,
-                                            </p>
-                                            <span class="price">$18.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/desert4.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>raw marbled meat steak</h3>
-                                            <p>Shad angler arapaima pencilsmelt. Eggs, poached, fried, with
-                                                bacon.
-                                                chorizo, roasted roma tomatoes.</p>
-                                            <span class="price">$25.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_05.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>Beef steak grill pan</h3>
-                                            <p>Galjoen fish Australian lungfish sea, Shad angler arapaima
-                                                pencilsmelt. Eggs, poached, with
-                                                bacon.</p>
-                                            <span class="price">$16.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="dish_box">
-                                    <div class="dish_info">
-                                        <div class="dish_img">
-                                            <img src="images/dish_06.png" alt="img">
-                                        </div>
-                                        <div class="dish_text">
-                                            <h3>raw marbled meat steak</h3>
-                                            <p>Bacon, chorizo, roasted roma
-                                                tomatoes Beef, Eggs, poached Beef, Eggs, poached, with bacon,
-                                            </p>
-                                            <span class="price">$22.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <a href="menu-list-3.html" class="btn btn_primary">view full menu</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
+
             <!-- Tab Content End -->
         </div>
     </section>

@@ -73,6 +73,32 @@ Route::group(
     }
 );
 
+Route::group(
+    [
+        'prefix' => 'food',
+        'as' => 'food.'
+    ],
+    function () {
+        Route::get('/', [\App\Http\Controllers\FoodController::class, 'index'])
+            ->middleware(['auth'])->name('all');
+
+        Route::get('/create', [\App\Http\Controllers\FoodController::class, 'create'])
+            ->middleware(['auth'])->name('create');
+
+        Route::get('/{id}/edit', [\App\Http\Controllers\FoodController::class, 'edit'])
+            ->middleware(['auth'])->name('edit');
+
+        Route::post('/', [\App\Http\Controllers\FoodController::class, 'store'])
+            ->middleware(['auth'])->name('store');
+
+        Route::put('/{id}', [\App\Http\Controllers\FoodController::class, 'update'])
+            ->middleware(['auth'])->name('update');
+
+        Route::get('/{id}/delete', [\App\Http\Controllers\FoodController::class, 'destroy'])
+            ->middleware(['auth'])->name('destroy');
+    }
+);
+
 
 Route::group(
     [

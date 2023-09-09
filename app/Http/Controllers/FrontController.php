@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use App\Models\Slider;
+use App\Models\Category;
+use App\Models\Food;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -15,10 +17,16 @@ class FrontController extends Controller
     {
         $sliders = Slider::all();
         $gallery = Gallery::all();
+        $categories = Category::all();
+        $food = Food::with('categories')->get();
+
+
 
         return view('welcome', [
             'sliders' => $sliders,
-            'gallery' => $gallery
+            'gallery' => $gallery,
+            'categories' => $categories,
+            'food' => $food
         ]);
     }
 
