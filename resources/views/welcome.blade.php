@@ -201,6 +201,8 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-12">
                                     <div class="dish_box">
+                                        <span class=" new"
+                                            style="display: {{ $item->new == 0 ? 'none' : 'block' }};">New</span>
                                         <div class="dish_info">
                                             <div class="dish_img">
                                                 <img src="{{ asset('storage/images/' . $item->img_name) }}"
@@ -257,46 +259,6 @@
                         </div>
                         <div class="dish_img">
                             <img src="images/discount_dish.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-                <div class="dishMain" data-30-top="position: sticky;">
-                    <div class="dish_block">
-                        <div class="dish_text">
-                            <div class="text">
-                                <span class="off">25% off</span>
-                                <h3>Fresh Oysters Dozen</h3>
-                                <p>Fried, Beef, Eggs, poached with <br> roasted roma toma bacon, chorizo,<br>
-                                    mushrooms & spinach toes.</p>
-                                <p class="price">
-                                    <span class="new_price">$25.00</span>
-                                    <span class="old_price">$50.00</span>
-                                </p>
-                                <a href="menu-list-2.html" class="btn btn_primary">explore more</a>
-                            </div>
-                        </div>
-                        <div class="dish_img">
-                            <img src="images/discount_dish2.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-                <div class="dishMain" data-30-top="position: sticky;">
-                    <div class="dish_block">
-                        <div class="dish_text">
-                            <div class="text">
-                                <span class="off">35% off</span>
-                                <h3>Chicha Morada</h3>
-                                <p>bacon, chorizo, roasted roma toma with <br> toes. mushrooms & spinach.<br>
-                                    Beef, Eggs, poached, fried.</p>
-                                <p class="price">
-                                    <span class="new_price">$25.00</span>
-                                    <span class="old_price">$50.00</span>
-                                </p>
-                                <a href="menu-list-3.html" class="btn btn_primary">explore more</a>
-                            </div>
-                        </div>
-                        <div class="dish_img">
-                            <img src="images/discount_dish3.png" alt="img">
                         </div>
                     </div>
                 </div>
