@@ -241,28 +241,41 @@
             </div>
             <!-- Dish Banner Start -->
             <!-- <div id="skrollr-body"></div> -->
-            <div class="dish_slides">
-                <div class="dishMain" data-30-top="position: sticky;">
-                    <div class="dish_block">
-                        <div class="dish_text">
-                            <div class="text">
-                                <span class="off">50% off</span>
-                                <h3>Beef steak grill pan</h3>
-                                <p>Beef, Eggs, poached, fried, with <br> bacon, chorizo, roasted roma toma <br>
-                                    toes. mushrooms & spinach.</p>
-                                <p class="price">
-                                    <span class="new_price">$25.00</span>
-                                    <span class="old_price">$50.00</span>
-                                </p>
-                                <a href="menu-list-1.html" class="btn btn_primary">explore more</a>
+            @foreach ($discounts as $discount)
+                @if ($discount->status == 'active')
+                    <div class="dish_slides">
+                        <div class="dishMain" data-30-top="position: sticky;">
+                            <div class="dish_block">
+                                <div class="dish_text">
+                                    <div class="text">
+                                        @if ($discount->amount_off != null)
+                                            <span class="off">${{ number_format($discount->amount_off, 2) }}</span>
+                                        @elseif($discount->percent_off != null)
+                                            <span class="off">{{ $discount->percent_off }}%</span>
+                                        @else
+                                            <span class="off">0</span>
+                                        @endif
+                                        <h3>{{ $discount->title }}</h3>
+                                        <p>{{ $discount->description }}</p>
+                                        {{--  <p class="price">
+                                        <span class="new_price">$25.00</span>
+                                        <span class="old_price">$50.00</span>
+                                    </p>  --}}
+                                        <button style="background: none; border: 1px solid var(--primary-red);"
+                                            class="btn btn_primary">{{ $discount->code }}</button>
+                                    </div>
+                                </div>
+                                <div class="dish_img">
+                                    <img style="object-fit: cover; width: 100%; height: 100%; obect-position: center;  "
+                                        src="{{ asset('storage/images/' . $discount->image) }}" alt="img">
+                                </div>
                             </div>
                         </div>
-                        <div class="dish_img">
-                            <img src="images/discount_dish.png" alt="img">
-                        </div>
                     </div>
-                </div>
-            </div>
+                @endif
+            @endforeach
+
+
             <!-- Dish Banner End -->
         </div>
     </section>
@@ -334,49 +347,7 @@
             <div class="testimonial_wraper" data-aos="fade-in" data-aos-duration="1500">
                 <div class="owl-carousel owl-theme" id="testimonial_slider">
 
-                    <div class="item">
-                        <div class="testimonial_inner">
-                            <div class="img">
-                                <img src="images/testmonial_01.png" alt="img">
-                            </div>
-                            <div class="text">
-                                <span class="quote">“</span>
-                                <div class="star">
-                                    <span><i class="icofont-star"></i></span>
-                                    <span><i class="icofont-star"></i></span>
-                                    <span><i class="icofont-star"></i></span>
-                                    <span><i class="icofont-star"></i></span>
-                                    <span><i class="icofont-star"></i></span>
-                                </div>
-                                <h2>It's a great experience. The ambiance is realy very welcoming and charming.
-                                    Amazing food, wines and services.</h2>
-                                <h3>Marry Christina, <span class="designation">via trip advisor</span></h3>
-                                <span class="quote text-right d-block">”</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="item">
-                        <div class="testimonial_inner">
-                            <div class="img">
-                                <img src="images/testmonial_02.png" alt="img">
-                            </div>
-                            <div class="text">
-                                <span class="quote">“</span>
-                                <div class="star">
-                                    <span><i class="icofont-star"></i></span>
-                                    <span><i class="icofont-star"></i></span>
-                                    <span><i class="icofont-star"></i></span>
-                                    <span><i class="icofont-star"></i></span>
-                                    <span><i class="icofont-star"></i></span>
-                                </div>
-                                <h2>Amazing food, wines and services very welcoming and charming.
-                                    Amazing food, wines and services It's a great experience.</h2>
-                                <h3>Marry Christina, <span class="designation">via trip advisor</span></h3>
-                                <span class="quote text-right d-block">”</span>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="item">
                         <div class="testimonial_inner">
@@ -403,9 +374,7 @@
 
                 </div>
             </div>
-            <div class="text-center" data-aos="fade-in" data-aos-duration="1500">
-                <a href="reviews.html" class="btn btn_primary">more testimonials</a>
-            </div>
+
         </div>
 
 

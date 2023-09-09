@@ -2,35 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gallery;
-use App\Models\Slider;
-use App\Models\Category;
-use App\Models\Discount;
-use App\Models\Food;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
-class FrontController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $sliders = Slider::all();
-        $gallery = Gallery::all();
-        $categories = Category::all();
-        $food = Food::with('categories')->get();
-        $discounts = Discount::all();
-
-
-
-        return view('welcome', [
-            'sliders' => $sliders,
-            'gallery' => $gallery,
-            'categories' => $categories,
-            'food' => $food,
-            'discounts' => $discounts
-        ]);
+        //
     }
 
     /**
@@ -52,7 +34,7 @@ class FrontController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Review $review)
     {
         //
     }
@@ -60,7 +42,7 @@ class FrontController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Review $review)
     {
         //
     }
@@ -68,7 +50,7 @@ class FrontController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Review $review)
     {
         //
     }
@@ -76,7 +58,7 @@ class FrontController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Review $review)
     {
         //
     }

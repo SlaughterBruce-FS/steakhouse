@@ -75,6 +75,32 @@ Route::group(
 
 Route::group(
     [
+        'prefix' => 'discount',
+        'as' => 'discount.'
+    ],
+    function () {
+        Route::get('/', [\App\Http\Controllers\DiscountController::class, 'index'])
+            ->middleware(['auth'])->name('all');
+
+        Route::get('/create', [\App\Http\Controllers\DiscountController::class, 'create'])
+            ->middleware(['auth'])->name('create');
+
+        Route::get('/{id}/edit', [\App\Http\Controllers\DiscountController::class, 'edit'])
+            ->middleware(['auth'])->name('edit');
+
+        Route::post('/', [\App\Http\Controllers\DiscountController::class, 'store'])
+            ->middleware(['auth'])->name('store');
+
+        Route::put('/{id}', [\App\Http\Controllers\DiscountController::class, 'update'])
+            ->middleware(['auth'])->name('update');
+
+        Route::get('/{id}/delete', [\App\Http\Controllers\DiscountController::class, 'destroy'])
+            ->middleware(['auth'])->name('destroy');
+    }
+);
+
+Route::group(
+    [
         'prefix' => 'food',
         'as' => 'food.'
     ],
