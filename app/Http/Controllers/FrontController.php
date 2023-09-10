@@ -7,6 +7,7 @@ use App\Models\Slider;
 use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Food;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -46,7 +47,19 @@ class FrontController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $reservation = new Reservation();
+
+        $reservation->name = $request->input('name');
+        $reservation->phone = $request->input('phone');
+        $reservation->date = $request->input('date');
+        $reservation->time = $request->input('time');
+        $reservation->message = $request->input('message');
+        $reservation->number_of_guests = $request->input('number_of_guests');
+
+        $reservation->save();
+
+        return redirect()->back()->with('status', 'Reservation created successfully');
     }
 
     /**

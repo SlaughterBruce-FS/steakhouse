@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
-            $table->string('review');
-            $table->integer('rating');
-            $table->string('customer_name');
-            $table->timestamps();
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->string('time')->after('date');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        Schema::table('reservations', function (Blueprint $table) {
+            //
+        });
     }
 };

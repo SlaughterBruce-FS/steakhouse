@@ -232,7 +232,7 @@
 
 
     <!-- Our Discount Dishes Section Start-->
-    <section class="discount_section bg_white_textcher row_inner_am">
+    <section id="deals" class="discount_section bg_white_textcher row_inner_am">
         <div class="container">
             <div class="section_title text-center" data-30-top="position: sticky;" data-aos="fade-up"
                 data-aos-duration="1500">
@@ -335,7 +335,7 @@
     <!-- Who We Are Section End -->
 
 
-    <!-- Testimonial Section Start -->
+    {{--  <!-- Testimonial Section Start -->
     <section class="row_inner_am testimonial_section bg_white_textcher">
         <div class="container-fluid">
             <!-- Section Title -->
@@ -378,7 +378,7 @@
         </div>
 
 
-    </section>
+    </section>  --}}
     <!-- Testimonial Section End -->
 
 
@@ -460,7 +460,7 @@
 
 
     <!-- Online ReserVation Form Start -->
-    <section class="resarvation_form rform_bg">
+    <section id="reservations" class="resarvation_form rform_bg">
         <div class="container">
             <div class="form_inner" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="150">
                 <div class="formBlock">
@@ -470,22 +470,25 @@
                             form
                         </p>
                     </div>
-                    <form>
+                    <form class="row" method="POST" action="{{ route('front.store') }}">
+                        @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name">
+                                    <input type="text" class="form-control" name="name" placeholder="Your Name">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Phone Number">
+                                    <input type="text" class="form-control" name="phone"
+                                        placeholder="Phone Number">
                                 </div>
                             </div>
                             <div class="col-md-6 col-lg-4">
                                 <div class="form-group">
                                     <span class="icon"><i class="icofont-user-alt-7"></i></span>
-                                    <input type="text" class="form-control has_icon" placeholder="1 Person">
+                                    <input type="text" class="form-control has_icon" name="number_of_guests"
+                                        placeholder="1 Person">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -496,8 +499,27 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <span class="icon"><i class="icofont-clock-time"></i></span>
-                                    <input type="time" class="form-control has_icon  flex-row-reverse pl-0">
+                                    {{--  <span class="icon"><i class="icofont-clock-time"></i></span>  --}}
+                                    <select name="time" class="form-control ">
+                                        <option value="12:00pm">12:00pm</option>
+                                        <option value="12:30pm">12:30pm</option>
+                                        <option value="1:00pm">1:00pm</option>
+                                        <option value="1:30pm">1:30pm</option>
+                                        <option value="2:00pm">2:00pm</option>
+                                        <option value="2:30pm">2:30pm</option>
+                                        <option value="3:00pm">3:00pm</option>
+                                        <option value="3:30pm">3:30pm</option>
+                                        <option value="4:00pm">4:00pm</option>
+                                        <option value="4:30pm">4:30pm</option>
+                                        <option value="5:00pm">5:00pm</option>
+                                        <option value="5:30pm">5:30pm</option>
+                                        <option value="6:00pm">6:00pm</option>
+                                        <option value="6:30pm">6:30pm</option>
+                                        <option value="7:00pm">7:00pm</option>
+                                        <option value="7:30pm">7:30pm</option>
+                                        <option value="8:00pm">8:00pm</option>
+                                        <option value="8:30pm">8:30pm</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -598,4 +620,85 @@
         </div>
     </section>
     <!-- Blog Section End -->
+
+    <!-- Contact Us Sectino Start -->
+    <section class="contact_us_section">
+        <!-- Right Shape -->
+        <div class="right_shape position-absolute">
+            <img src="images/abtbanshape.png" alt="img">
+        </div>
+        <!-- Left Shape -->
+        <div class="left_shape position-absolute">
+            <img src="images/contactShape.png" alt="img">
+        </div>
+        <div class="container">
+            <!-- Section Title -->
+            <div class="section_title text-center">
+                <span class="icon" data-aos="fade-down" data-aos-duration="1500"><img src="images/contact_icon.png"
+                        alt="img"></span>
+                <span class="sub_text mb-1" data-aos="fade-up" data-aos-duration="1500">Contact us</span>
+                <h2 data-aos="fade-up" data-aos-duration="1500">Get in touch with us
+                </h2>
+            </div>
+            <!-- Contact Block -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="img" data-aos="fade-up" data-aos-duration="1500">
+                        <img class="radius_img" src="images/contact.png" alt="img">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact_box">
+                        <ul class="contact_listing" data-aos="fade-up" data-aos-duration="1500">
+                            <li>
+                                <p class="sub_title">Call us</p>
+                                <div class="cnt_block">
+                                    <a href="tel:+11234567890">+1 123 456 7890</a>
+                                    <span><i class="icofont-ui-call"></i></span>
+                                </div>
+                                <div class="cnt_block">
+                                    <a href="tel:+10987654321">+1 098 765 4321</a>
+                                    <span><i class="icofont-whatsapp"></i></span>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="sub_title">Email us</p>
+                                <div class="cnt_block">
+                                    <a href="mailto:">hello@gmail.com</a>
+                                    <span><i class="icofont-envelope-open"></i></span>
+                                </div>
+                            </li>
+                            <li>
+                                <p class="sub_title">Find us</p>
+                                <div class="cnt_block">
+                                    <p>Restaurant St, Delicious City, London 9578, UK</p>
+                                    <span><i class="icofont-location-pin"></i></span>
+                                </div>
+                            </li>
+                        </ul>
+                        <form data-aos="fade-up" data-aos-duration="1500">
+                            <h3>Say hi, Don’t be shy!</h3>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-group text-right">
+                                <button type="submit" class="btn btn_primary">SUBMIT</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Contact Us Sectino End -->
 @endsection

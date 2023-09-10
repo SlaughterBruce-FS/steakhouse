@@ -21,7 +21,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [\App\Http\Controllers\FrontController::class, 'index'])->name('home');
+// Route::get('/', [\App\Http\Controllers\FrontController::class, 'index'])->name('home');
+
+// Route::get('/', [\App\Http\Controllers\FrontController::class, 'store'])->name('store');
 
 Route::get('/about', function () {
     return view('pages.about');
@@ -73,6 +75,9 @@ Route::group(
     }
 );
 
+
+
+
 Route::group(
     [
         'prefix' => 'discount',
@@ -98,6 +103,27 @@ Route::group(
             ->middleware(['auth'])->name('destroy');
     }
 );
+
+Route::group(
+    [
+        'prefix' => '/',
+        'as' => 'front.'
+    ],
+    function () {
+        Route::get('/', [\App\Http\Controllers\FrontController::class, 'index'])->name('all');
+
+        Route::get('/create', [\App\Http\Controllers\FrontController::class, 'create'])->name('create');
+
+        Route::get('/{id}/edit', [\App\Http\Controllers\FrontController::class, 'edit'])->name('edit');
+
+        Route::post('/', [\App\Http\Controllers\FrontController::class, 'store'])->name('store');
+
+        Route::put('/{id}', [\App\Http\Controllers\FrontController::class, 'update'])->name('update');
+
+        Route::get('/{id}/delete', [\App\Http\Controllers\FrontController::class, 'destroy'])->name('destroy');
+    }
+);
+
 
 Route::group(
     [
@@ -148,6 +174,32 @@ Route::group(
             ->middleware(['auth'])->name('update');
 
         Route::get('/{id}/delete', [\App\Http\Controllers\CategoryController::class, 'destroy'])
+            ->middleware(['auth'])->name('destroy');
+    }
+);
+
+Route::group(
+    [
+        'prefix' => 'reservation',
+        'as' => 'reservation.'
+    ],
+    function () {
+        Route::get('/', [\App\Http\Controllers\ReservationController::class, 'index'])
+            ->middleware(['auth'])->name('all');
+
+        Route::get('/create', [\App\Http\Controllers\ReservationController::class, 'create'])
+            ->middleware(['auth'])->name('create');
+
+        Route::get('/{id}/edit', [\App\Http\Controllers\ReservationController::class, 'edit'])
+            ->middleware(['auth'])->name('edit');
+
+        Route::post('/', [\App\Http\Controllers\ReservationController::class, 'store'])
+            ->middleware(['auth'])->name('store');
+
+        Route::put('/{id}', [\App\Http\Controllers\ReservationController::class, 'update'])
+            ->middleware(['auth'])->name('update');
+
+        Route::get('/{id}/delete', [\App\Http\Controllers\ReservationController::class, 'destroy'])
             ->middleware(['auth'])->name('destroy');
     }
 );
