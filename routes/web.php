@@ -51,6 +51,50 @@ Route::get('/dashboard', function () {
 
 Route::group(
     [
+        'prefix' => 'blogs',
+        'as' => 'blogs.'
+    ],
+    function () {
+        Route::get('/', [\App\Http\Controllers\BlogController::class, 'index'])
+            ->middleware(['auth'])->name('all');
+
+        Route::get('/create', [\App\Http\Controllers\BlogController::class, 'create'])
+            ->middleware(['auth'])->name('create');
+
+        Route::get('/{slug}/{id}/edit', [\App\Http\Controllers\BlogController::class, 'edit'])
+            ->middleware(['auth'])->name('edit');
+
+        Route::post('/', [\App\Http\Controllers\BlogController::class, 'store'])
+            ->middleware(['auth'])->name('store');
+
+        Route::put('/{slug}/{id}', [\App\Http\Controllers\BlogController::class, 'update'])
+            ->middleware(['auth'])->name('update');
+
+        Route::get('/{id}/delete', [\App\Http\Controllers\BlogController::class, 'destroy'])
+            ->middleware(['auth'])->name('destroy');
+
+        // start photos route
+
+        Route::get('/{slug}/{id}/photos', [\App\Http\Controllers\BlogPhotosController::class, 'index'])
+            ->middleware(['auth'])->name('photos');
+
+        Route::get('/{slug}/{id}/photos/create', [\App\Http\Controllers\BlogPhotosController::class, 'create'])
+            ->middleware(['auth'])->name('photos.create');
+
+
+        Route::post('/{slug}/{id}/photos', [\App\Http\Controllers\BlogPhotosController::class, 'store'])
+            ->middleware(['auth'])->name('photos.store');
+
+        Route::get('/{slug}/{id}/photos/{photo_id}/delete', [\App\Http\Controllers\BlogPhotosController::class, 'destroy'])
+            ->middleware(['auth'])->name('photos.destroy');
+
+        Route::get('/{slug}/{id}/photos/{photo_id}/featured', [\App\Http\Controllers\BlogPhotosController::class, 'featured'])
+            ->middleware(['auth'])->name('photos.featured');
+    }
+);
+
+Route::group(
+    [
         'prefix' => 'category',
         'as' => 'category.'
     ],
