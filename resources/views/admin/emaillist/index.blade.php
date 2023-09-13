@@ -40,7 +40,7 @@
                 <div class="page-meta">
                     <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Datatables</a></li>
+                            <li class="breadcrumb-item"><a href="#">Dasboard</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Striped</li>
                         </ol>
                     </nav>
@@ -54,30 +54,20 @@
                             <table id="zero-config" class="table table-striped dt-table-hover" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>Category</th>
+                                        <th>Email</th>
                                         <th>Updated at</th>
                                         <th>action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($category as $cat)
+                                    @foreach ($emails as $email)
                                         <tr>
 
-                                            <td> {{ $cat->name }}</td>
-                                            <td>{{ $cat->created_at }}</td>
+                                            <td> {{ $email->email }}</td>
+                                            <td>{{ $email->created_at }}</td>
                                             <td class="text-center ">
-                                                <a class="badge badge-light-primary text-start me-2 action-edit"
-                                                    href="{{ route('category.edit', ['id' => $cat->id]) }}"><svg
-                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-edit-3">
-                                                        <path d="M12 20h9"></path>
-                                                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z">
-                                                        </path>
-                                                    </svg></a>
                                                 <a class="badge badge-light-danger text-start action-delete"
-                                                    href="{{ route('category.edit', ['id' => $cat->id]) }}"
+                                                    href="{{ route('emaillist.destroy', ['id' => $email->id]) }}"
                                                     onclick="return confirm('Are you sure you want to delete?')">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"

@@ -54,30 +54,30 @@
                             <table id="zero-config" class="table table-striped dt-table-hover" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>Category</th>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Position</th>
                                         <th>Updated at</th>
                                         <th>action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($category as $cat)
+                                    @foreach ($teams as $member)
                                         <tr>
-
-                                            <td> {{ $cat->name }}</td>
-                                            <td>{{ $cat->created_at }}</td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <img alt="avatar" class="img-fluid " style="width: 100px"
+                                                            src="{{ asset('storage/images/' . $member->image) }}">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> {{ $member->name }}</td>
+                                            <td>{{ $member->position }}</td>
+                                            <td>{{ $member->created_at }}</td>
                                             <td class="text-center ">
-                                                <a class="badge badge-light-primary text-start me-2 action-edit"
-                                                    href="{{ route('category.edit', ['id' => $cat->id]) }}"><svg
-                                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                        class="feather feather-edit-3">
-                                                        <path d="M12 20h9"></path>
-                                                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z">
-                                                        </path>
-                                                    </svg></a>
                                                 <a class="badge badge-light-danger text-start action-delete"
-                                                    href="{{ route('category.edit', ['id' => $cat->id]) }}"
+                                                    href="{{ route('team.destroy', ['id' => $member->id]) }}"
                                                     onclick="return confirm('Are you sure you want to delete?')">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"

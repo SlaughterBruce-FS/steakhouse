@@ -45,11 +45,11 @@ class BlogPhotosController extends Controller
             'image' => 'required|file',
 
         ]);
-
+        // get the photo name and size
         $newName = time() . '-' . $request->file('image')->getClientOriginalName();
         $size = $request->file('image')->getSize();
         $name = $newName;
-        $request->file('image')->move(public_path('img'), $name);
+        $request->file('image')->storeAs('/public/images', $name);
 
 
 

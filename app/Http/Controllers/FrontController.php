@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
+use App\Models\BlogPhotos;
 use App\Models\Gallery;
 use App\Models\Slider;
 use App\Models\Category;
 use App\Models\Discount;
+use App\Models\EmailList;
 use App\Models\Food;
 use App\Models\Reservation;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -22,6 +26,9 @@ class FrontController extends Controller
         $categories = Category::all();
         $food = Food::with('categories')->get();
         $discounts = Discount::all();
+        $blogs = Blog::all();
+        $blogsphotos = BlogPhotos::all();
+        $teams = Team::all();
 
 
 
@@ -30,7 +37,10 @@ class FrontController extends Controller
             'gallery' => $gallery,
             'categories' => $categories,
             'food' => $food,
-            'discounts' => $discounts
+            'discounts' => $discounts,
+            'blogs' => $blogs,
+            'blogsphotos' => $blogsphotos,
+            'teams' => $teams
         ]);
     }
 
@@ -60,6 +70,22 @@ class FrontController extends Controller
         $reservation->save();
 
         return redirect()->back()->with('status', 'Reservation created successfully');
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function storeEmail(Request $request)
+    {
+
+        $emails = new EmailList();
+
+        $emails->email = $request->input('email');
+
+        $emails->save();
+
+        return redirect()->back()->with('status', 'Email created successfully');
     }
 
     /**

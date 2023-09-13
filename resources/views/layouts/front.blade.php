@@ -162,37 +162,18 @@
         <!-- Footer Start -->
         <footer>
             <div class="container">
-                <div class="foote_widget contact_info">
-                    <div class="row py_50">
-                        <div class="col-md-7 direction_block">
-                            <p>
-                                Restaurant St, Delicious City, <br>
-                                London 9578, UK <br>
-                                Booking : <a href="tel:+88-123-123456">+88-123-123456</a>
-                            </p>
-                            <a href="contact-us.html" class="btn_text">get direction <i
-                                    class="icofont-long-arrow-right"></i></a>
-                        </div>
-                        <div class="col-md-5 text-md-right timing_block">
-                            <p>
-                                Monday - Friday : 8AM - 9PM <br>
-                                Saturday - Sunday : 8AM - 11PM
-                            </p>
-                            <a href="#" class="btn btn_primary mt-3" id="bookingForm_modelTitle"
-                                data-toggle="modal" data-target="#bookingForm_model">book a
-                                table</a>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="foote_widget newsletter_block">
                     <div class="row py_50">
                         <div class="col-md-7 offer_block">
                             <h2>Get News & Offers</h2>
                             <p>Subscribe us & Get <span>25% Off.</span></p>
-                            <form>
+                            <form class="row" method="POST" action="{{ route('front.storeEmail') }}">
+                                @csrf
                                 <div class="form-group">
                                     <span class="icon position-absolute"><i class="icofont-envelope-open"></i></span>
-                                    <input type="text" placeholder="Your email" class="form-control" required>
+                                    <input type="text" name="email" placeholder="Your email"
+                                        class="form-control" required>
                                     <button class="btn btn_primary">subscribe now</button>
                                 </div>
                             </form>

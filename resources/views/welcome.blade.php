@@ -135,7 +135,7 @@
         </div>
         <!-- Video Wraper End -->
         <!-- Counter Slider -->
-        <div class="container">
+        {{--  <div class="container">
             <ul class="count_block" id="counter">
                 <li data-aos="fade-up" data-aos-duration="1000">
                     <div class="icon"><img src="images/smilly.png" alt="img"></div>
@@ -161,7 +161,7 @@
                     <p>Customer Rating</p>
                 </li>
             </ul>
-        </div>
+        </div>  --}}
     </div>
     <!-- Video Section End -->
 
@@ -182,9 +182,9 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist" data-aos="fade-up" data-aos-duration="1500">
                 @foreach ($categories as $category)
                     <li class="nav-item">
-                        <a class="nav-link {{ $category->name == 'steaks' ? 'active' : '' }}"
-                            id="{{ $category->name }}-tab" data-toggle="tab" href="#{{ $category->name }}"
-                            role="tab" aria-controls="{{ $category->name }}"
+                        <a class="nav-link {{ $category->name == 'steaks' ? 'active' : '' }}" id="{{ $category->name }}-tab"
+                            data-toggle="tab" href="#{{ $category->name }}" role="tab"
+                            aria-controls="{{ $category->name }}"
                             aria-selected="{{ $category->name == 'steaks' ? 'true' : 'false' }}">{{ $category->name }}</a>
                     </li>
                 @endforeach
@@ -396,61 +396,20 @@
             <!-- Team Slider Start-->
             <div class="team_slider_wraper" data-aos="fade-in" data-aos-duration="1500">
                 <div class="owl-carousel owl-theme" id="team_slider">
-                    <div class="item">
-                        <div class="team_card">
-                            <div class="img">
-                                <img src="images/chef_01.png" alt="img">
-                            </div>
-                            <div class="info">
-                                <h3>Jammie Waters</h3>
-                                <span class="position">Master Chef</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="team_card">
-                            <div class="img">
-                                <img src="images/chef_02.png" alt="img">
-                            </div>
-                            <div class="info">
-                                <h3>Amelia Ava</h3>
-                                <span class="position">Master Chef</span>
+                    @foreach ($teams as $member)
+                        <div class="item">
+                            <div class="team_card">
+                                <div class="img">
+                                    <img src="{{ asset('storage/images/' . $member->image) }}" alt="img">
+                                </div>
+                                <div class="info">
+                                    <h3>{{ $member->name }}</h3>
+                                    <span class="position">{{ $member->position }}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="team_card">
-                            <div class="img">
-                                <img src="images/chef_03.png" alt="img">
-                            </div>
-                            <div class="info">
-                                <h3>John Due</h3>
-                                <span class="position">Master Chef</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="team_card">
-                            <div class="img">
-                                <img src="images/chef_01.png" alt="img">
-                            </div>
-                            <div class="info">
-                                <h3>Jammie Waters</h3>
-                                <span class="position">Master Chef</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="team_card">
-                            <div class="img">
-                                <img src="images/chef_02.png" alt="img">
-                            </div>
-                            <div class="info">
-                                <h3>Amelia Ava</h3>
-                                <span class="position">Master Chef</span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
             <!-- Team Slider End-->
@@ -572,51 +531,34 @@
             </div>
             <!-- Blog Card Start -->
             <div class="row">
-                <div class="col-md-4">
-                    <div class="blog_card" data-aos="fade-up" data-aos-duration="1500">
-                        <a href="#" class="img">
-                            <img src="images/blog01.png" alt="img" class="img-fluid">
-                        </a>
-                        <div class="info">
-                            <span class="date">19.04.2023</span>
-                            <h3><a href="blog-list.html">A rare taste you can’t find
-                                    anywhere in Newyork</a></h3>
-                            <a href="blog-list.html" class="btn btn_text">READ MORE <i
-                                    class="icofont-long-arrow-right"></i></a>
+                @foreach ($blogs as $post)
+                    <div class="col-md-4">
+                        <div class="blog_card" data-aos="fade-up" data-aos-duration="1500">
+                            <a href="#" class="img">
+                                @foreach ($blogsphotos as $bphoto)
+                                    @if ($bphoto->blog_id == $post->id)
+                                        @if ($bphoto->featured == 1)
+                                            <img src="{{ asset('storage/images/' . $bphoto->name) }}" alt="img"
+                                                class="img-fluid">
+                                        @endif
+                                    @endif
+                                @endforeach
+
+                            </a>
+                            <div class="info">
+                                <span class="date">19.04.2023</span>
+                                <h3><a href="blog-list.html">{{ $post->title }}</a></h3>
+                                <a href="blog-list.html" class="btn btn_text">READ MORE <i
+                                        class="icofont-long-arrow-right"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog_card" data-aos="fade-up" data-aos-duration="1500">
-                        <a href="#" class="img">
-                            <img src="images/blog02.png" alt="img" class="img-fluid">
-                        </a>
-                        <div class="info">
-                            <span class="date">15.04.2023</span>
-                            <h3><a href="blog-list.html">Marbling so good it melts in your mouth.</a></h3>
-                            <a href="blog-list.html" class="btn btn_text">READ MORE <i
-                                    class="icofont-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="blog_card" data-aos="fade-up" data-aos-duration="1500">
-                        <a href="#" class="img">
-                            <img src="images/blog03.png" alt="img" class="img-fluid">
-                        </a>
-                        <div class="info">
-                            <span class="date">08.04.2023</span>
-                            <h3><a href="blog-list.html">Satisfying your steak needs one bite at a time.</a>
-                            </h3>
-                            <a href="blog-list.html" class="btn btn_text">READ MORE <i
-                                    class="icofont-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
-            <div class="text-center" data-aos="fade-in" data-aos-duration="1500">
+            {{--  <div class="text-center" data-aos="fade-in" data-aos-duration="1500">
                 <a href="blog-list.html" class="btn btn_primary">more blogs</a>
-            </div>
+            </div>  --}}
         </div>
     </section>
     <!-- Blog Section End -->

@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EmailList;
+use App\Models\General;
 use Illuminate\Http\Request;
 
-class EmailListController extends Controller
+class GeneralController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $emails = EmailList::all();
-
-        return view('admin.emaillist.index', [
-            'emails' => $emails
-        ]);
+        //
     }
 
     /**
@@ -38,7 +34,7 @@ class EmailListController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(EmailList $emailList)
+    public function show(General $general)
     {
         //
     }
@@ -46,7 +42,7 @@ class EmailListController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(EmailList $emailList)
+    public function edit(General $general)
     {
         //
     }
@@ -54,7 +50,7 @@ class EmailListController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, EmailList $emailList)
+    public function update(Request $request, General $general)
     {
         //
     }
@@ -62,12 +58,8 @@ class EmailListController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(EmailList $emailList, $id)
+    public function destroy(General $general)
     {
-        $email = EmailList::find($id);
-
-        $email->delete();
-
-        return redirect()->back()->with('status', 'Email deleted successfully');
+        //
     }
 }

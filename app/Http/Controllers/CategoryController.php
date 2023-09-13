@@ -51,19 +51,26 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category, Request $request)
+    public function edit(Category $category, Request $request, $id)
     {
+
+        $category = Category::find($id);
+
+
         return view('admin.category.edit', [
-            'category' => $category
+            'category' => $category,
+            'id' => $id
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category, $id)
     {
-        $category = Category::find($category->id);
+        $category = Category::find($id);
+
+
 
         $category->name = $request->input('name');
         $category->save();
@@ -74,9 +81,9 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category, $id)
     {
-        $category = Category::find($category->id);
+        $category = Category::find($id);
 
         $category->delete();
 

@@ -12,7 +12,11 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        $teams = Team::all();
+
+        return view('admin.team.index', [
+            'teams' => $teams
+        ]);
     }
 
     /**
@@ -20,7 +24,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.team.create');
     }
 
     /**
@@ -28,7 +32,25 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $team = new Team();
+
+        request()->validate([
+            'image' => 'required|file',
+
+        ]);
+        // get the photo name and size
+        $newName = time() . '-' . $request->file('image')->getClientOriginalName();
+        $size = $request->file('image')->getSize();
+        $name = $newName;
+        $request->file('image')->storeAs('/public/images', $name);
+
+        $team->name = $request->input('name');
+        $team->position = $request->input('position');
+        $team->image = $name;
+
+        $team->save();
+
+        return redirect()->route('team.all');
     }
 
     /**
@@ -52,14 +74,17 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Team $team)
+    public function destroy(Team $team, $id)
     {
-        //
+        $team = Team::find($id);
+
+        $team->delete();
+
+        return redirect()->route('team.all');
     }
 }

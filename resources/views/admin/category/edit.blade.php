@@ -76,7 +76,7 @@
 
                 <div class="row layout-top-spacing">
 
-                    <form class="row" method="POST" action="{{ route('slider.update', ['id' => $slider->id]) }}">
+                    <form class="row" method="POST" action="{{ route('category.update', ['id' => $id]) }}">
                         @csrf
                         @method('PUT')
                         <div class="col-xxl-9 col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -85,41 +85,10 @@
 
 
 
-
-                                {{--  <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="post-title" placeholder="Type"
-                                            name="type" value="{{ old('sub_title', $slider->sub_title) }}">
-                                    </div>
-                                </div>  --}}
                                 <div class="row mb-4">
                                     <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="sub_title"
-                                            value="{{ old('sub_title', $slider->sub_title) }}" name="sub_title">
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="title"
-                                            value="{{ old('sub_title', $slider->title) }}" name="title">
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="description"
-                                            value="{{ old('description', $slider->description) }}" name="description">
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="button-text"
-                                            value="{{ old('button_text', $slider->button_text) }}" name="button_text">
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <input type="text" class="form-control" id="link"
-                                            value="{{ old('link', $slider->link) }}" name="link">
+                                        <input type="text" class="form-control" id="name"
+                                            value="{{ old('name', $category->name) }}" name="name">
                                     </div>
                                 </div>
 

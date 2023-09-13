@@ -162,6 +162,8 @@ Route::group(
 
         Route::post('/', [\App\Http\Controllers\FrontController::class, 'store'])->name('store');
 
+        Route::post('/email', [\App\Http\Controllers\FrontController::class, 'storeEmail'])->name('storeEmail');
+
         Route::put('/{id}', [\App\Http\Controllers\FrontController::class, 'update'])->name('update');
 
         Route::get('/{id}/delete', [\App\Http\Controllers\FrontController::class, 'destroy'])->name('destroy');
@@ -191,6 +193,32 @@ Route::group(
             ->middleware(['auth'])->name('update');
 
         Route::get('/{id}/delete', [\App\Http\Controllers\FoodController::class, 'destroy'])
+            ->middleware(['auth'])->name('destroy');
+    }
+);
+
+Route::group(
+    [
+        'prefix' => 'emaillist',
+        'as' => 'emaillist.'
+    ],
+    function () {
+        Route::get('/', [\App\Http\Controllers\EmailListController::class, 'index'])
+            ->middleware(['auth'])->name('all');
+
+        Route::get('/create', [\App\Http\Controllers\EmailListController::class, 'create'])
+            ->middleware(['auth'])->name('create');
+
+        Route::get('/{id}/edit', [\App\Http\Controllers\EmailListController::class, 'edit'])
+            ->middleware(['auth'])->name('edit');
+
+        Route::post('/', [\App\Http\Controllers\EmailListController::class, 'store'])
+            ->middleware(['auth'])->name('store');
+
+        Route::put('/{id}', [\App\Http\Controllers\EmailListController::class, 'update'])
+            ->middleware(['auth'])->name('update');
+
+        Route::get('/{id}/delete', [\App\Http\Controllers\EmailListController::class, 'destroy'])
             ->middleware(['auth'])->name('destroy');
     }
 );
@@ -271,6 +299,32 @@ Route::group(
             ->middleware(['auth'])->name('update');
 
         Route::get('/{id}/delete', [\App\Http\Controllers\SliderController::class, 'destroy'])
+            ->middleware(['auth'])->name('destroy');
+    }
+);
+
+Route::group(
+    [
+        'prefix' => 'team',
+        'as' => 'team.'
+    ],
+    function () {
+        Route::get('/', [\App\Http\Controllers\TeamController::class, 'index'])
+            ->middleware(['auth'])->name('all');
+
+        Route::get('/create', [\App\Http\Controllers\TeamController::class, 'create'])
+            ->middleware(['auth'])->name('create');
+
+        Route::get('/{id}/edit', [\App\Http\Controllers\TeamController::class, 'edit'])
+            ->middleware(['auth'])->name('edit');
+
+        Route::post('/', [\App\Http\Controllers\TeamController::class, 'store'])
+            ->middleware(['auth'])->name('store');
+
+        Route::put('/{id}', [\App\Http\Controllers\TeamController::class, 'update'])
+            ->middleware(['auth'])->name('update');
+
+        Route::get('/{id}/delete', [\App\Http\Controllers\TeamController::class, 'destroy'])
             ->middleware(['auth'])->name('destroy');
     }
 );
