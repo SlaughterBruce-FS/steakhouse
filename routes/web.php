@@ -336,4 +336,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Route for automatic deploys from Github.
+Route::post('deploy', 'App\Http\Controllers\DeployController@deploy');
+
 require __DIR__ . '/auth.php';
