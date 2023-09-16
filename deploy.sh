@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # cd /var/www/log.trcoa.edu;
-cd /public_html/jamiesh.com;
+cd /var/www/jamiesh.com;
 
 # activate maintenance mode
 php artisan down
