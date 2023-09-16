@@ -337,6 +337,6 @@ Route::middleware('auth')->group(function () {
 });
 
 // Route for automatic deploys from Github.
-Route::post('deploy', 'App\Http\Controllers\DeployController@deploy');
+Route::post('/deploy', 'App\Http\Controllers\DeployController@deploy');
 
 require __DIR__ . '/auth.php';
